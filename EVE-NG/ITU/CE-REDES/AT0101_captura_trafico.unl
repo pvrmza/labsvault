@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0101_captura_trafico" id="9761b637-9f3c-4350-8c42-81a798349495" version="1" scripttimeout="300" lock="0">
+  <topology>
+    <nodes>
+      <node id="1" name="Linux1" type="qemu" template="linux" image="linux-ubuntu-server-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="e48e5977-27d0-4590-a177-7cc8510e9332" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="172" top="608">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="Linux2" type="qemu" template="linux" image="linux-ubuntu-server-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="baebe160-7edd-4356-858b-cc8fd2234ec6" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="322" top="608">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="3" name="Linux3" type="qemu" template="linux" image="linux-ubuntu-server-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="b28884f5-c95d-4ba4-96ad-058ca2f9044e" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="472" top="608">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Externa" left="316" top="320" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
