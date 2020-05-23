@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 # para que solo muestre las plantillas cargadas 
 cp /opt/unetlab/html/includes/config.php.distribution /opt/unetlab/html/includes/config.php
@@ -6,7 +6,7 @@ cp /opt/unetlab/html/includes/config.php.distribution /opt/unetlab/html/includes
 # teclado en español
 for file in `find /opt/unetlab/html/templates/ -type f -iname \???*.yml`
 do
-  sed -i 's/=kvm /=kvm -k es /g' $file
+  sed -i 's/=kvm -vga /=kvm -k es -vga /g' $file
 done
 
 #IOL con 256MB andan...
@@ -32,4 +32,18 @@ make clean
 ./configure --disable-docs
 make
 make install
+
+#------ sync-labsvault.sh
+wget https://raw.githubusercontent.com/pvrmza/labsvault/master/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
+chmod 755 /etc/cron.hourly/sync-labsvault.sh
+
+cat << EOF > /etc/rc.local
+hostnamectl set-hostname "eve-ng"
+test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
+find /opt/unetlab/labs/ -name '*.lock' -exec rm {} \;
+/etc/cron.hourly/sync-labsvault.sh
+exit 0
+EOF
+
+chmod 755 /etc/rc.local
 
