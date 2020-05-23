@@ -1,7 +1,11 @@
 #!/bin/bash
 
-apt-get update 
-apt-get install -y qemu-guest-agent open-vm-tools megatools
+while fuser /var/lib/dpkg/lock-frontend; do
+	echo "Waiting...another process use dpkg"
+    sleep 5
+done
+
+apt-get update && apt-get install -y qemu-guest-agent open-vm-tools megatools
 
 # para que solo muestre las plantillas cargadas 
 cp /opt/unetlab/html/includes/config.php.distribution /opt/unetlab/html/includes/config.php
@@ -24,17 +28,6 @@ do
   sed -i 's/ram: 2048/ram: 512/g' $file
 done
 
-#------ install megadl
-#apt-get -y install build-essential libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config
-#cd /usr/local/src
-#wget https://megatools.megous.com/builds/megatools-1.10.3.tar.gz
-#tar -zxvf megatools-1.10.3.tar.gz
-#cd megatools-1.10.3
-#make clean
-#./configure --disable-docs
-#make
-#make install
-
 #------ sync-labsvault.sh
 wget https://raw.githubusercontent.com/pvrmza/labsvault/master/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
 chmod 755 /etc/cron.hourly/sync-labsvault.sh
@@ -48,4 +41,5 @@ exit 0
 EOF
 
 chmod 755 /etc/rc.local
+reboot
 
