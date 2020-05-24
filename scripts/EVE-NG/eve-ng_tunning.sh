@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while fuser /var/lib/dpkg/lock-frontend; do
-	echo "Waiting...another process use dpkg"
+	echo "Waiting...another process is using dpkg"
     sleep 5
 done
 
@@ -29,7 +29,7 @@ do
 done
 
 #------ sync-labsvault.sh
-wget https://raw.githubusercontent.com/pvrmza/labsvault/master/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
+wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
 chmod 755 /etc/cron.hourly/sync-labsvault.sh
 
 cat << EOF > /etc/rc.local
@@ -41,5 +41,6 @@ exit 0
 EOF
 
 chmod 755 /etc/rc.local
+
 reboot
 

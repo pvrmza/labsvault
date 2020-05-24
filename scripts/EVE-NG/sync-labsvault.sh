@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# update !!! 
+wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
+#
 DIRLOCALLABS=/opt/unetlab/labs/labs
 DIRREMOTELABS=EVE-NG
 
