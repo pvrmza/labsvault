@@ -5,12 +5,16 @@ while fuser /var/lib/dpkg/lock-frontend; do
     sleep 5
 done
 
-apt-get update && apt-get install -y qemu-guest-agent open-vm-tools megatools
+apt-get update && apt-get install -y qemu-guest-agent open-vm-tools megatools subversion rsync 
+if [ $? -ne 0 ]; then
+	exit 1
+fi
 
 # para que solo muestre las plantillas cargadas 
 cp /opt/unetlab/html/includes/config.php.distribution /opt/unetlab/html/includes/config.php
 
-# teclado en español
+#------ set default values to template
+# spanish keyboard
 for file in `find /opt/unetlab/html/templates/ -type f -iname \???*.yml`
 do
   sed -i 's/=kvm -vga /=kvm -k es -vga /g' $file
@@ -29,9 +33,13 @@ do
 done
 
 #------ sync-labsvault.sh
-wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /etc/cron.hourly/sync-labsvault.sh
-chmod 755 /etc/cron.hourly/sync-labsvault.sh
+wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /tmp/sync-labsvault.sh
+if [ $? -eq 0 ]; then
+	cp /tmp/sync-labsvault.sh /etc/cron.hourly/sync-labsvault.sh
+	chmod 755 /etc/cron.hourly/sync-labsvault.sh
+fi
 
+# ----- 
 cat << EOF > /etc/rc.local
 hostnamectl set-hostname "eve-ng"
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
