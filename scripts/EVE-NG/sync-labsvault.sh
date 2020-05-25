@@ -30,4 +30,3 @@ if [ $? -eq 0 ]; then
 	chmod 755 /etc/cron.hourly/sync-labsvault.sh
 	logger "auto update [OK]"
 fi
-
