@@ -36,20 +36,20 @@ done
 
 #------ megadl
 cd /usr/local/src
-wget https://megatools.megous.com/builds/megatools-1.10.3.tar.gz
+wget -q https://megatools.megous.com/builds/megatools-1.10.3.tar.gz
 
 tar -zxvf megatools-1.10.3.tar.gz
 cd megatools-1.10.3
 ./configure --disable-docs && make && make install
 
 #------ sync-labsvault.sh
-wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /tmp/sync-labsvault.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /tmp/sync-labsvault.sh
 if [ $? -eq 0 ]; then
 	cp /tmp/sync-labsvault.sh /etc/cron.hourly/sync-labsvault.sh
 	chmod 755 /etc/cron.hourly/sync-labsvault.sh
 fi
 #------ update_images.sh
-wget https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/update_images.sh -O /tmp/update_images.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/update_images.sh -O /tmp/update_images.sh
 if [ $? -eq 0 ]; then
 	cp /tmp/update_images.sh /etc/cron.daily/update_images.sh
 	chmod 755 /etc/cron.daily/update_images.sh
@@ -80,6 +80,7 @@ EOF
 chmod 755 /etc/rc.local
 
 /etc/cron.daily/update_images.sh
+/etc/cron.hourly/sync-labsvault.sh
 
 reboot
 

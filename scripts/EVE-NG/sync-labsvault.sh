@@ -2,7 +2,7 @@
 
 logger "iniciando..."
 #
-DIRLOCALLABS=/opt/unetlab/labs/labs
+DIRLOCALLABS=/opt/unetlab/labs/labsvault
 DIRREMOTELABS=EVE-NG
 URLLABS=https://github.com/pvrmza/labsvault/trunk/$DIRREMOTELABS/
 
