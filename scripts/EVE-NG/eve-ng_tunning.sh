@@ -5,7 +5,9 @@ while fuser /var/lib/dpkg/lock-frontend; do
     sleep 5
 done
 
-apt-get update && apt-get install -y qemu-guest-agent open-vm-tools subversion rsync build-essential libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config
+apt-get update && apt-get install -y qemu-guest-agent open-vm-tools subversion rsync build-essential \
+  libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config \
+  genisoimage cloud-utils
 if [ $? -ne 0 ]; then
 	exit 1
 fi
@@ -69,13 +71,15 @@ cat << EOF > /etc/rc.local
 hostnamectl set-hostname "eve-ng"
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 find /opt/unetlab/labs/ -name '*.lock' -exec rm {} \;
-/etc/cron.daily/update_images.sh
-/etc/cron.hourly/sync-labsvault.sh
+/etc/cron.daily/update_images.sh > /var/log/update_images.log
+/etc/cron.hourly/sync-labsvault.sh > /var/log/sync-labsvault.log
 
 exit 0
 EOF
 
 chmod 755 /etc/rc.local
+
+/etc/cron.daily/update_images.sh
 
 reboot
 
