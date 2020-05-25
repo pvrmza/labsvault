@@ -12,7 +12,7 @@ rm -rf $DIRREMOTELABS
 svn checkout $URLLABS 
 if [ $? -eq 0 ]; then
 	# tmp -> dir local
-	mkdir -p $DIRLOCALLABS
+	rm -rf $$DIRLOCALLABS && mkdir -p $DIRLOCALLABS
 	rsync -avz --exclude='.svn*' --delete $DIRREMOTELABS/* $DIRLOCALLABS
 
 	# fix 
