@@ -8,7 +8,7 @@ done
 apt-get update && apt-get -y dist-upgrade
 apt-get install -y qemu-guest-agent open-vm-tools subversion rsync build-essential \
   libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config \
-  genisoimage cloud-utils screen byobu
+  genisoimage cloud-utils screen byobu eve-ng-addons-netem
 if [ $? -ne 0 ]; then
 	exit 1
 fi
