@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0203_labredes" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
+<lab name="0203_cuatro_segmentos" id="cc352811-06db-4dca-a07d-3388b5efaf51" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
   <topology>
     <nodes>
       <node id="1" name="Linux1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="2" uuid="54650292-833e-4643-a6dc-e98fd7409f18" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="415" top="255">
@@ -40,4 +40,20 @@
       <network id="4" type="bridge" name="sw4" left="213" top="435" visibility="1"/>
     </networks>
   </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="Segmento 1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IHVpLXJlc2l6YWJsZSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjEiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAxNzRweDsgdG9wOiAyMjhweDsgaGVpZ2h0OiA0NDMuOThweDsgd2lkdGg6IDI0Ny45MzhweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iU2VnbWVudG8gMSI+PHN2ZyB3aWR0aD0iMjQ3LjkzOCIgaGVpZ2h0PSI0NDMuOTgiPjxyZWN0IHdpZHRoPSIyNDcuOTM4IiBoZWlnaHQ9IjQ0My45OCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="Segmento 2" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUyIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIiBkYXRhLXBhdGg9IjIiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA0NjJweDsgdG9wOiAxMjBweDsgd2lkdGg6IDQwOC45NzNweDsgaGVpZ2h0OiAxOTEuOTg0cHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9IlNlZ21lbnRvIDIiPjxzdmcgd2lkdGg9IjQwOC45NzMiIGhlaWdodD0iMTkxLjk3MyI+PHJlY3Qgd2lkdGg9IjQwOC45NzMiIGhlaWdodD0iMTkxLjk3MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiNmZjAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="3" name="segmento 3" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUzIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIiBkYXRhLXBhdGg9IjMiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA0NjJweDsgdG9wOiAzMjRweDsgd2lkdGg6IDQwNS45NjVweDsgaGVpZ2h0OiAyNTEuOTczcHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9InNlZ21lbnRvIDMiPjxzdmcgd2lkdGg9IjQwNS45NjUiIGhlaWdodD0iMjUxLjk3MyI+PHJlY3Qgd2lkdGg9IjQwNS45NjUiIGhlaWdodD0iMjUxLjk3MyIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMGZmMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="4" name="Segmento 4" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU0IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IHVpLXJlc2l6YWJsZSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjQiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA0NjJweDsgdG9wOiA1ODJweDsgd2lkdGg6IDQwNS45ODRweDsgaGVpZ2h0OiAxOTcuOTg0cHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9IlNlZ21lbnRvIDQiPjxzdmcgd2lkdGg9IjQwNS45ODQiIGhlaWdodD0iMTk3Ljk4NCI+PHJlY3Qgd2lkdGg9IjQwNS45ODQiIGhlaWdodD0iMTk3Ljk4NCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwZmYiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+    </textobjects>
+  </objects>
 </lab>
