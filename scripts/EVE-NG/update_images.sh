@@ -3,12 +3,14 @@
 LOG="/var/log/update_images.log"
 BASE="/opt/unetlab/addons"
 LIST="images.list"
-
-date > $LOG
+IMAGESLIST="https://kutt.it/lv-images-list"
+#
+echo "iniciando..." > $LOG
+date >> $LOG
 
 # download new images.list
 rm -rf ${BASE}/${LIST}
-megaurl=`curl -s https://kutt.it/lv-images-list | cut -b 23-`
+megaurl=`curl -s $IMAGESLIST | cut -b 23-`
 megadl --path=${BASE} $megaurl >>$LOG
 
 if ! test -f ${BASE}/${LIST} ; then

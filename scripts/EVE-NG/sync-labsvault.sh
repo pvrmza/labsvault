@@ -1,13 +1,13 @@
 #!/bin/bash
 
 LOG="/var/log/sync-labsvault.log"
-
-echo "iniciando..." > $LOG
-date >> $LOG
-#
 DIRLOCALLABS=/opt/unetlab/labs/labsvault
 DIRREMOTELABS=EVE-NG
 URLLABS=https://github.com/pvrmza/labsvault/trunk/$DIRREMOTELABS/
+
+#
+echo "iniciando..." > $LOG
+date >> $LOG
 
 # svn -> tmp
 cd /tmp
@@ -15,7 +15,7 @@ rm -rf $DIRREMOTELABS
 svn checkout $URLLABS >> $LOG
 if [ $? -eq 0 ]; then
         # tmp -> dir local
-        rm -rf $$DIRLOCALLABS && mkdir -p $DIRLOCALLABS
+        rm -rf $DIRLOCALLABS && mkdir -p $DIRLOCALLABS
         rsync -avz --exclude='.svn*' --delete $DIRREMOTELABS/* $DIRLOCALLABS >> $LOG
 
         # fix 
@@ -24,14 +24,4 @@ if [ $? -eq 0 ]; then
         echo "lab sync [OK]" >> $LOG
 else
         echo "fallo SVN CHECKOUT" >> $LOG
-fi
-
-# auto update !!! 
-wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /tmp/sync-labsvault.sh
-if [ $? -eq 0 ]; then
-        cp /tmp/sync-labsvault.sh /etc/cron.hourly/sync-labsvault.sh
-        chmod 755 /etc/cron.hourly/sync-labsvault.sh
-        echo "auto update [OK]" >> $LOG
-else
-        echo "fallo descarga autoupdate" >> $LOG
 fi
