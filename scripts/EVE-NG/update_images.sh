@@ -1,21 +1,18 @@
 #!/bin/bash
 
-LOG="/var/log/update_images.log"
 BASE="/opt/unetlab/addons"
 LIST="images.list"
 IMAGESLIST="https://kutt.it/lv-images-list"
 #
-echo "iniciando..." > $LOG
-date >> $LOG
 
 # download new images.list
 rm -rf ${BASE}/${LIST}
 megaurl=`curl -s $IMAGESLIST | cut -b 23-`
-megadl --path=${BASE} $megaurl >>$LOG
+megadl --path=${BASE} $megaurl 
 
 if ! test -f ${BASE}/${LIST} ; then
         # if download fail... exit...
-        echo "${BASE}/${LIST} not exist" >> $LOG
+        echo "${BASE}/${LIST} not exist" 
         exit 1
 fi
 
@@ -35,19 +32,19 @@ do
                         sha1=`sha1sum ${FileLocal} | awk '{ print $1}' `
                         if [ $SHA1 != $sha1 ]; then
                                 rm -rf ${FileLocal}
-                                echo "Downloading ${FILE} in ${BASE}${DIR}..." >> $LOG
-                                mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} >> $LOG
+                                echo "Downloading ${FILE} in ${BASE}${DIR}..." 
+                                mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} 
                         else
-                                echo "${FileLocal} is update" >> $LOG
+                                echo "${FileLocal} is update" 
                         fi
                 else
-                        echo "Downloading ${FILE} in ${BASE}${DIR}..." >> $LOG
-                        mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} >> $LOG
+                        echo "Downloading ${FILE} in ${BASE}${DIR}..." 
+                        mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} 
                 fi
         else
-                echo "Downloading ${FILE} in ${BASE}${DIR}..." >> $LOG
-                mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} >> $LOG
+                echo "Downloading ${FILE} in ${BASE}${DIR}..." 
+                mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} 
         fi
-done < <( cat ${BASE}/${LIST} ) >> $LOG
+done < <( cat ${BASE}/${LIST} ) 
 
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions >> $LOG
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions 
