@@ -7,7 +7,7 @@ done
 
 apt-get update && apt-get install -y qemu-guest-agent open-vm-tools subversion rsync build-essential \
   libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config \
-  genisoimage cloud-utils
+  genisoimage cloud-utils screen byobu
 if [ $? -ne 0 ]; then
 	exit 1
 fi
@@ -79,8 +79,9 @@ hostnamectl set-hostname "eve-ng"
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 find /opt/unetlab/labs/ -name '*.lock' -exec rm {} \;
 
-/etc/cron.daily/91update_images.sh 
+/etc/cron.daily/90autoupdate.sh
 /etc/cron.hourly/90sync-labsvault.sh 
+/etc/cron.daily/91update_images.sh 
 
 exit 0
 EOF

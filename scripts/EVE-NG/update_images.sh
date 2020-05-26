@@ -34,7 +34,7 @@ do
                                 rm -rf ${FileLocal}
                                 echo "Downloading ${FILE} in ${BASE}${DIR}..." 
                                 mkdir -p ${BASE}${DIR} && megadl --path=${FileLocal} ${URL} 
-                        else
+	                        else
                                 echo "${FileLocal} is update" 
                         fi
                 else
