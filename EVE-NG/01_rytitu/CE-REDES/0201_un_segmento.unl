@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0201_aislado" version="1" scripttimeout="300" lock="0">
+<lab name="0201_aislado" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">>
   <topology>
     <nodes>
       <node id="1" name="Linux1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="d652d053-faee-4ee3-8786-4e4daf610a64" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="273" top="354">
