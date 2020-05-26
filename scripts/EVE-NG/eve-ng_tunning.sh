@@ -58,7 +58,7 @@ fi
 #------ autoupdate.sh
 wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/autoupdate.sh -O /tmp/autoupdate.sh
 if [ $? -eq 0 ]; then
-	cp /tmp/autoupdate.sh /etc/cron.daily/autoupdate.sh
+	cp /tmp/autoupdate.sh /etc/cron.daily/90autoupdate.sh
 	chmod 755 /etc/cron.daily/90autoupdate.sh
 fi
 
