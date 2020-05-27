@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="lab1" id="b7201890-ddad-4b34-8e2a-49aa587bc0d1" version="1" scripttimeout="300" lock="0">
+<lab name="lab1" id="b7201890-ddad-4b34-8e2a-49aa587bc0d1" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
   <topology>
     <nodes>
       <node id="1" name="sw1" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="2" nvram="256" ram="128" serial="0" console="" delay="0" icon="Switch.png" config="0" left="179" top="231">
