@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="0401_Red_Simple" id="968715be-d7fc-4b32-9aa6-ce2bf9fa251c" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <topology>
+    <nodes>
+      <node id="1" name="router" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="4" uuid="db96ece2-bf33-4a63-8094-6f3d855a9e63" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="369" top="219">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+        <interface id="1" name="e1" type="ethernet" network_id="1"/>
+        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+        <interface id="3" name="e3" type="ethernet" network_id="3"/>
+      </node>
+      <node id="2" name="DC2" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="3aa0cd89-cdbb-4c0b-9870-f2125cf70a6c" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_AD.png" config="0" left="174" top="154">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="3" name="DC1" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="cf3c481c-1adc-49e8-8bda-e28781c9031e" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_AD.png" config="0" left="174" top="354">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="4" name="PC01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="5c39ce50-5576-4e73-8162-91a3ec35f00f" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="265" top="513">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="PC02" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="3ce833e3-cd92-4fb7-9a1d-54f2a94b6915" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="469" top="514">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="6" name="WEB01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="31965da2-7bb8-4fc7-8399-dc31ec284017" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="571" top="156">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="7" name="MAIL01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="e5f3fb71-3ff1-49e4-aaca-8261608e4233" firstmac="00:50:00:00:07:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_mail.png" config="0" left="570" top="360">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="sw1" left="169" top="274" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="569" top="274" visibility="1"/>
+      <network id="3" type="bridge" name="sw3" left="369" top="424" visibility="1"/>
+      <network id="4" type="pnet0" name="internet" left="366" top="70" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
