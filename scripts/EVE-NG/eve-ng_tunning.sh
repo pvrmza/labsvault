@@ -81,8 +81,9 @@ test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 find /opt/unetlab/labs/ -name '*.lock' -exec rm {} \;
 
 /etc/cron.daily/90autoupdate
-/etc/cron.hourly/90sync-labsvault 
-/etc/cron.daily/91update_images 
+/etc/cron.hourly/90sync-labsvault
+/etc/cron.daily/91updateimages
+
 
 exit 0
 EOF
