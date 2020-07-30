@@ -44,22 +44,22 @@ cd megatools-1.10.3
 ./configure --disable-docs && make && make install
 
 #------ sync-labsvault.sh
-wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault.sh -O /tmp/sync-labsvault.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault -O /tmp/sync-labsvault
 if [ $? -eq 0 ]; then
-	cp /tmp/sync-labsvault.sh /etc/cron.hourly/90sync-labsvault
+	cp /tmp/sync-labsvault /etc/cron.hourly/90sync-labsvault
 	chmod 755 /etc/cron.hourly/90sync-labsvault
 fi
-#------ update_images.sh
-wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/update_images.sh -O /tmp/update_images.sh
+#------ updateimages
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/updateimages -O /tmp/updateimages
 if [ $? -eq 0 ]; then
-	cp /tmp/update_images.sh /etc/cron.daily/91update_images
-	chmod 755 /etc/cron.daily/91update_images
+	cp /tmp/updateimages.sh /etc/cron.daily/91updateimages
+	chmod 755 /etc/cron.daily/91updateimages
 fi
 
-#------ autoupdate.sh
-wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/autoupdate.sh -O /tmp/autoupdate.sh
+#------ autoupdate
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/autoupdate -O /tmp/autoupdate
 if [ $? -eq 0 ]; then
-	cp /tmp/autoupdate.sh /etc/cron.daily/90autoupdate
+	cp /tmp/autoupdate /etc/cron.daily/90autoupdate
 	chmod 755 /etc/cron.daily/90autoupdate
 fi
 
