@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="0402_servicios_red" id="dc6522d1-226b-4d0b-b975-473407f4cf33" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <topology>
+    <nodes>
+      <node id="1" name="SRV1" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="7f572f37-8818-41ad-aade-2c54bb558842" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="273" top="297">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="SRV2" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="d37ff99b-969f-4cef-8712-55e493d7be29" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="399" top="294">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Internet" left="345" top="168" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
