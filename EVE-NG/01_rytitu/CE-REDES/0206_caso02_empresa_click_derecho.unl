@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0206_caso02_empresa_click_derecho" id="2a066ed2-4c48-4e5a-b15d-8da4d2454615" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
+<lab name="0206_caso02_empresa_click_derecho" id="2a066ed2-4c48-4e5a-b15d-8da4d2454615" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
   <description>Una empresa especialista en brindar servicios TIC y de soporte a otras empresas posee 4 oficinas repartidas por distintas partes del mundo (Mendoza, Lima, Barcelona y Cancun).
 
 Cada ubicación tiene su propio router dedicado y su propia conexión a Internet, pero también un túnel VPN a las otras ubicaciones, conformando una interconexión total entre las oficinas (full mesh) a través de Internet. Cada oficina dispone de una red cableada para unos 20 puestos de trabajo y 20 teléfonos IP, y dos redes wifi (una privada y una de invitados) con una capacidad para 30 dispositivos en cada una de las otras redes.</description>
