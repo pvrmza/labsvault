@@ -57,7 +57,7 @@
       <node id="15" name="SRV1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="d24a7155-5ea4-47ed-862b-f28027b2731e" firstmac="00:50:00:00:0f:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="121" top="206">
         <interface id="0" name="e0" type="ethernet" network_id="14"/>
       </node>
-      <node id="16" name="router-data" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="4" uuid="c8f8c2c9-dd17-4ce8-9b7e-965fce22331b" firstmac="00:50:00:00:10:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router2.png" config="0" left="410" top="272">
+      <node id="16" name="router-data" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="4" uuid="c8f8c2c9-dd17-4ce8-9b7e-965fce22331b" firstmac="00:50:00:00:10:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router2.png" config="0" left="410" top="272">
         <interface id="0" name="e0" type="ethernet" network_id="13"/>
         <interface id="2" name="e2" type="ethernet" network_id="17"/>
         <interface id="3" name="e3" type="ethernet" network_id="1"/>
