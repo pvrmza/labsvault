@@ -46,21 +46,22 @@ cd megatools-1.10.3
 #------ sync-labsvault.sh
 wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/sync-labsvault -O /tmp/sync-labsvault
 if [ $? -eq 0 ]; then
-	cp /tmp/sync-labsvault /etc/cron.hourly/90sync-labsvault
-	chmod 755 /etc/cron.hourly/90sync-labsvault
+	cp /tmp/sync-labsvault /etc/cron.hourly/90sync_labsvault
+	chmod 755 /etc/cron.hourly/90sync_labsvault
 fi
-#------ updateimages
-wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/updateimages -O /tmp/updateimages
+#------ update_images.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/updateimages -O /tmp/update_images
 if [ $? -eq 0 ]; then
-	cp /tmp/updateimages.sh /etc/cron.daily/91updateimages
-	chmod 755 /etc/cron.daily/91updateimages
+	cp /tmp/update_images /etc/cron.daily/91update_images
+	chmod 755 /etc/cron.daily/91update_images
 fi
+
 
 #------ autoupdate
 wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/EVE-NG/autoupdate -O /tmp/autoupdate
 if [ $? -eq 0 ]; then
-	cp /tmp/autoupdate /etc/cron.daily/90autoupdate
-	chmod 755 /etc/cron.daily/90autoupdate
+	cp /tmp/autoupdate /etc/cron.daily/90auto_update
+	chmod 755 /etc/cron.daily/90auto_update
 fi
 
 # ----- 
@@ -80,10 +81,9 @@ hostnamectl set-hostname "eve-ng"
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 find /opt/unetlab/labs/ -name '*.lock' -exec rm {} \;
 
-/etc/cron.daily/90autoupdate
-/etc/cron.hourly/90sync-labsvault
-/etc/cron.daily/91updateimages
-
+/etc/cron.daily/90auto_update
+/etc/cron.daily/91update_images
+/etc/cron.hourly/90sync_labsvault
 
 exit 0
 EOF
