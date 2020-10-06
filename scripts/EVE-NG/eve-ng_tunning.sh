@@ -91,7 +91,7 @@ EOF
 chmod 755 /etc/rc.local
 
 /etc/cron.daily/91update_images
-/etc/cron.hourly/90sync-labsvault
+/etc/cron.hourly/90sync_labsvault
 
 reboot
 
