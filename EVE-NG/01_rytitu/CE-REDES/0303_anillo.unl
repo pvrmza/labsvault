@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0303_anillo" id="880c65ac-c668-40df-953e-1f3e9dc407f9" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+<lab name="0303_anillo" id="880c65ac-c668-40df-953e-1f3e9dc407f9" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
   <topology>
     <nodes>
       <node id="2" name="PC1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="ec2a90cf-5141-4e1b-b932-04114af3b18f" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop3.png" config="0" left="313" top="519">
@@ -14,11 +14,11 @@
       <node id="5" name="PC4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="a5f63f26-4505-4fde-9972-aaf920f3e8c6" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="815" top="613">
         <interface id="0" name="e0" type="ethernet" network_id="2"/>
       </node>
-      <node id="1" name="R1" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="369" top="319">
+      <node id="1" name="R1" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="372" top="309">
         <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
         <interface id="16" name="e0/1" type="ethernet" network_id="3"/>
       </node>
-      <node id="6" name="R2" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="769" top="419">
+      <node id="6" name="R2" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="768" top="417">
         <interface id="0" name="e0/0" type="ethernet" network_id="3"/>
         <interface id="16" name="e0/1" type="ethernet" network_id="2"/>
         <interface id="17" type="serial" name="s1/1" remote_id="7" remote_if="1"/>
@@ -34,12 +34,12 @@
       <node id="9" name="PC6" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="485f0001-9b2c-43a6-8df0-36a162fe4946" firstmac="00:50:00:00:09:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="1265" top="613">
         <interface id="0" name="e0" type="ethernet" network_id="5"/>
       </node>
-      <node id="10" name="R10" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="256" ram="256" serial="1" console="" delay="0" icon="Router.png" config="0" left="769" top="219">
+      <node id="10" name="R10" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="256" ram="256" serial="1" console="" delay="0" icon="Router.png" config="0" left="762" top="228">
         <interface id="0" name="e0/0" type="ethernet" network_id="3"/>
         <interface id="16" name="e0/1" type="ethernet" network_id="4"/>
         <interface id="32" name="e0/2" type="ethernet" network_id="7"/>
       </node>
-      <node id="11" name="R11" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="256" ram="256" serial="1" console="" delay="0" icon="Router.png" config="0" left="1219" top="219">
+      <node id="11" name="R11" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="256" ram="256" serial="1" console="" delay="0" icon="Router.png" config="0" left="1218" top="231">
         <interface id="0" name="e0/0" type="ethernet" network_id="4"/>
         <interface id="16" name="e0/1" type="ethernet" network_id="6"/>
         <interface id="1" type="serial" name="s1/0" remote_id="7" remote_if="17"/>

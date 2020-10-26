@@ -14,10 +14,10 @@
       <node id="5" name="Linux5" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="a5f63f26-4505-4fde-9972-aaf920f3e8c6" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="708" top="366">
         <interface id="0" name="e0" type="ethernet" network_id="2"/>
       </node>
-      <node id="1" name="Mikrotik" type="qemu" template="linux" image="linux-lv-mikrotik-6.47.7" console="vnc" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="a6efc03e-bb9e-4575-b8e9-f8a69efb5a3a" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="474" top="192">
-        <interface id="0" name="e0" type="ethernet" network_id="3"/>
-        <interface id="1" name="e1" type="ethernet" network_id="1"/>
-        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+      <node id="1" name="Mikrotik" type="qemu" template="mikrotik" image="mikrotik-lv-iso-6.47.7" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="bc0074fe-ae1c-4dcf-aa52-253726b2846b" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="471" top="201">
+        <interface id="0" name="eth1" type="ethernet" network_id="3"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="1"/>
+        <interface id="2" name="eth3" type="ethernet" network_id="2"/>
       </node>
     </nodes>
     <networks>

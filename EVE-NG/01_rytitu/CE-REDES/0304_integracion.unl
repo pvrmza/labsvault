@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0304_integracion" id="cc352811-06db-4dca-a07d-3388b5efaf51" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+<lab name="0304_integracion" id="cc352811-06db-4dca-a07d-3388b5efaf51" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
   <topology>
     <nodes>
       <node id="1" name="sw-mza01" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="1" nvram="128" ram="128" serial="0" console="" delay="0" icon="Switch.png" config="0" left="561" top="521">
