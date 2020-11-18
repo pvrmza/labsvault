@@ -7,7 +7,7 @@ IMAGESLIST="https://kutt.it/lv-images-list"
 
 # download new images.list
 rm -rf ${BASE}/${LIST}
-megaurl=`curl -s $IMAGESLIST | cut -b 23-`
+megaurl=$(curl -s $IMAGESLIST | awk '{print $NF}')
 megadl --path=${BASE} $megaurl 
 
 if ! test -f ${BASE}/${LIST} ; then
@@ -24,7 +24,7 @@ do
         SHA1=`echo $line | awk -F\| '{ print $3 }'`
         TINYURL=`echo $line | awk -F\| '{ print $4 }'`
         if ! test -z ${TINYURL} ; then        
-                URL=`curl -s $TINYURL | cut -b 23-`
+                URL=$(curl -s $TINYURL | awk '{print $NF}')
                 FileLocal=${BASE}${DIR}${FILE}
                 if test -d ${BASE}${DIR} ; then
                         if test -f ${FileLocal} ; then
