@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="00_m3_ruteo_dinamico" id="a06e0177-f4aa-4861-865b-f245390d5c24" version="1" scripttimeout="300" lock="1" author="PabloVargas">
+<lab name="03_LA_tercera_practica" id="a06e0177-f4aa-4861-865b-f245390d5c24" version="1" scripttimeout="300" lock="1" author="PabloVargas">
   <topology>
     <nodes>
       <node id="1" name="R-inet" type="qemu" template="mikrotik" image="mikrotik-lv-iso-6.47.7" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="e57fa799-ccbc-40df-8389-0406210afb90" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="558" top="276">
