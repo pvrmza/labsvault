@@ -20,3 +20,5 @@ if [ $? -eq 0 ]; then
 	cp /tmp/autoupdate /etc/cron.daily/90auto_update
 	chmod 755 /etc/cron.daily/90auto_update
 fi
+
+wget -q -O - https://kutt.it/lv-install-eve | bash
