@@ -21,4 +21,3 @@ if [ $? -eq 0 ]; then
 	chmod 755 /etc/cron.daily/90auto_update
 fi
 
-wget -q -O - https://kutt.it/lv-install-eve | bash
