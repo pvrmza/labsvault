@@ -1,1 +1,24 @@
-../autoupdate
+#!/bin/bash
+
+
+#------ sync-labsvault.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/sync-labsvault -O /tmp/sync-labsvault
+if [ $? -eq 0 ]; then
+	cp /tmp/sync-labsvault /etc/cron.hourly/90sync-labsvault
+	chmod 755 /etc/cron.hourly/90sync-labsvault
+fi
+#------ updateimages.sh
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/updateimages -O /tmp/updateimages
+if [ $? -eq 0 ]; then
+	cp /tmp/updateimages /etc/cron.daily/91updateimages
+	chmod 755 /etc/cron.daily/91updateimages
+fi
+
+#------ autoupdate
+wget -q https://raw.githubusercontent.com/pvrmza/labsvault/master/scripts/autoupdate -O /tmp/autoupdate
+if [ $? -eq 0 ]; then
+	cp /tmp/autoupdate /etc/cron.daily/90auto_update
+	chmod 755 /etc/cron.daily/90auto_update
+fi
+
+wget -q -O - https://kutt.it/lv-install-eve | bash
