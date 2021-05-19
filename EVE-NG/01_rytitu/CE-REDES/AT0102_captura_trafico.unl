@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="0101_simple_lab" id="943da02f-c26a-4a06-9023-9cd4d58cfa15" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+<lab name="AT0102_captura_trafico" id="943da02f-c26a-4a06-9023-9cd4d58cfa15" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <description>La primer actividad de taller de la cátedra de Redes pretende reforzar los conocimientos previos, adquiridos en las materias de Tecnología y otras, para que el alumno logre un mejor entendimiento en las interconexiones de redes y de los procesos de comunicación entre equipos.
+
+Esta Actividad de Taller también tiene como objetivo  el introducir al alumno en el uso de las herramientas básicas para el monitoreo de las redes así también como en el uso de diagnostico de las mismas.</description>
   <topology>
     <nodes>
       <node id="1" name="Linux1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="2ca485de-5432-48c5-8311-408a30cb37ef" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="312" top="400">
