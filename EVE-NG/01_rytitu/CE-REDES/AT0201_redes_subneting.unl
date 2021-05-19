@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="AT0201_redes_subneting" id="fa3c5206-2470-410c-acf8-f555f3a08dc0" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
+<lab name="AT0201_redes_subneting" id="fa3c5206-2470-410c-acf8-f555f3a08dc0" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
   <description>Esta actividad de taller tiene como objetivo introducir al alumno a las Redes IP, marcando la importancia de la mascara de red en el proceso de comunicación entre dos equipos  para que el alumno logre un mejor entendimiento en las interconexiones de redes y de los procesos de comunicación entre equipos.
 
 A si mismo, esta actividad de taller también busca reforzar los conocimientos previos, adquiridos en la materia, como la configuración de las interfaces de red en Linux y el uso de las herramientas de diagnostico de redes</description>
