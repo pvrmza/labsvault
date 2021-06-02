@@ -22,7 +22,7 @@ Para poder llevar a cabo esta práctica el alumno deberá poseer conocimientos e
       <node id="4" name="Linux4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="1" uuid="1e38b9f7-0f91-445b-9318-12d3b7b2c239" firstmac="00:50:01:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="597" top="312">
         <interface id="0" name="e0" type="ethernet" network_id="2"/>
       </node>
-      <node id="5" name="Router" type="qemu" template="linux" image="linux-lv-ubuntu-20.04" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="2" uuid="4079096d-af2e-4c15-972c-d83e8beae1b9" firstmac="00:50:01:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="387" top="225">
+      <node id="5" name="Router" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="2" uuid="4079096d-af2e-4c15-972c-d83e8beae1b9" firstmac="00:50:01:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="387" top="225">
         <interface id="0" name="e0" type="ethernet" network_id="1"/>
         <interface id="1" name="e1" type="ethernet" network_id="2"/>
       </node>
