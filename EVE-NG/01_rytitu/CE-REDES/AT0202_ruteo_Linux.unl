@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0202_ruteo_Linux" id="3a38fecb-9aa0-427c-9a3a-da4c80923f1a" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <description>Objetivos
+	Este trabajo dirigido de la cátedra de Redes pretende pretende introducir al alumno en los concepto de reenvió de trafico entre segmento que se producen en los router que interconectan las redes IP
+
+Para poder llevar a cabo esta práctica el alumno deberá poseer conocimientos en:
+    • Identificación de interfaces de red en maquinas Linux.
+    • Configuración de interfaces de red en maquinas Linux.
+    • Conocimientos del proceso de comunicación entre dos dos equipos de red.
+    • Realizar captura de trafico</description>
+  <topology>
+    <nodes>
+      <node id="1" name="Linux1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="1" uuid="a84c4f67-3ef5-4995-ba58-65b80f6f0cc3" firstmac="00:50:01:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="180" top="315">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="Linux2" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="1" uuid="0833c4c5-3c1b-4fda-bf56-4383618babe2" firstmac="00:50:01:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="261" top="318">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="3" name="Linux3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="1" uuid="06b063cc-92c0-466b-ba70-fd9a6a40a46f" firstmac="00:50:01:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="504" top="315">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="4" name="Linux4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="1" uuid="1e38b9f7-0f91-445b-9318-12d3b7b2c239" firstmac="00:50:01:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="597" top="312">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="5" name="Router" type="qemu" template="linux" image="linux-lv-ubuntu-20.04" console="vnc" cpu="2" cpulimit="0" ram="768" ethernet="2" uuid="4079096d-af2e-4c15-972c-d83e8beae1b9" firstmac="00:50:01:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="387" top="225">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="sw1" left="237" top="228" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="552" top="228" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
