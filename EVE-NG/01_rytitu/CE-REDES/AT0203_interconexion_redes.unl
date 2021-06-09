@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0203_interconexion_redes" id="68c3c153-8545-4aab-91a4-29722cafe13a" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <description>Esta actividad de taller de la cátedra de Redes busca introducirlo en la interconexión de redes con equipos Linux, reforzando conceptos básicos de ruteo y de diagnostico de redes.</description>
+  <topology>
+    <nodes>
+      <node id="1" name="lnx1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="d6b6e6aa-3750-4049-a059-7d91c6cf99a6" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="315" top="318">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="2"/>
+        <interface id="2" name="e2" type="ethernet" network_id="3"/>
+      </node>
+      <node id="2" name="lnx2" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="c1b14c0d-e40e-4123-a12f-651e0cc79c39" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="249" top="75">
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="3" name="lnx3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="8b32f077-2466-4442-8183-d05f52a51c92" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="468" top="72">
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="4" name="lnx4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="6f9d0d6b-18fd-4ebb-8e64-df3276bfb669" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="660" top="321">
+        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+      </node>
+      <node id="5" name="lnx5" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="1ef014b0-7a46-46a9-9a0c-3db79dfddb3a" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="900" top="477">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+      <node id="6" name="lnx6" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="c19dc7be-81f7-48d4-b196-f0ee822eaf96" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="384" top="474">
+        <interface id="1" name="e1" type="ethernet" network_id="2"/>
+      </node>
+      <node id="7" name="lnx7" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="dac27d53-4d2a-47ad-ad84-a38508b55bc3" firstmac="00:50:00:00:07:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="597" top="474">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Inet" left="78" top="330" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="495" top="342" visibility="1"/>
+      <network id="3" type="bridge" name="sw3" left="309" top="210" visibility="1"/>
+      <network id="4" type="bridge" name="sw4" left="750" top="492" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
