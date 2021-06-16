@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0204_dos_router_inet" id="23580905-34b6-407e-b3b5-73ae3ba7cfcd" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <description>Esta actividad de taller de la cátedra de Redes lo introduce en el proceso de “enmascaramiento” de las direcciones IP de las redes LAN hacia internet. Con esta practica se se busca no solo reforzar los conceptos de ruteo sino también entender el proceso de comunicación como se producen en las redes hogareñas</description>
+  <body>Configurar los equipos para que se puedan comunicar entre ellos y hacia Internet</body>
+  <topology>
+    <nodes>
+      <node id="1" name="LNX1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="4" uuid="ae8d6200-1e56-460d-9d94-5b74cfaad776" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Switch L3.png" config="0" left="429" top="384">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="4"/>
+        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+      </node>
+      <node id="2" name="LNX2" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="4" uuid="2dde8323-a348-4704-9948-516e4aaab1fa" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Switch L3.png" config="0" left="429" top="663">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="3" name="LNX4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="63ac071b-b9bf-4a7b-b1f9-10f9f070da11" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop_linux.png" config="0" left="801" top="432">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="4" name="LNX5" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="219a37e7-a637-4b13-bff1-d6c3775cace8" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="621">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="LNX6" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="ce897d53-bfb9-48ed-9d1b-e18de42d9f1b" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="738">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="6" name="LNX3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="f238d598-7844-4db3-9317-64a692b48e8b" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop_linux.png" config="0" left="801" top="297">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Internet" left="141" top="384" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="606" top="396" visibility="1"/>
+      <network id="3" type="bridge" name="sw3" left="597" top="675" visibility="1"/>
+      <network id="4" type="bridge" name="Net-R1iface_1" left="489" top="424" visibility="0"/>
+    </networks>
+  </topology>
+</lab>
