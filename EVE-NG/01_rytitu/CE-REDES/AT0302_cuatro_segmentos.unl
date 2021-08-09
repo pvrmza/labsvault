@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0302_cuatro_segmentos" id="a7af6ae7-0919-4944-951f-99408872ac95" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <description>Una practica mas de ruteo estatico con router Cisco</description>
+  <topology>
+    <nodes>
+      <node id="1" name="R1" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="453" top="213">
+        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="6"/>
+      </node>
+      <node id="2" name="R2" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="453" top="396">
+        <interface id="0" name="e0/0" type="ethernet" network_id="2"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="5"/>
+      </node>
+      <node id="3" name="R3" type="iol" template="iol" image="i86bi-lv-router-upk9-ms-12.2.bin" ethernet="1" nvram="128" ram="128" serial="1" console="" delay="0" icon="Router.png" config="0" left="447" top="603">
+        <interface id="0" name="e0/0" type="ethernet" network_id="3"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="4"/>
+      </node>
+      <node id="4" name="SW-LAN1" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="2" nvram="256" ram="256" serial="0" console="" delay="0" icon="Switch.png" config="0" left="612" top="210">
+        <interface id="0" name="e0/0" type="ethernet" network_id="6"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="11"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="12"/>
+      </node>
+      <node id="5" name="SW-LAN2" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="2" nvram="256" ram="256" serial="0" console="" delay="0" icon="Switch.png" config="0" left="609" top="399">
+        <interface id="0" name="e0/0" type="ethernet" network_id="5"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="9"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="10"/>
+      </node>
+      <node id="6" name="SW-LAN3" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="2" nvram="256" ram="256" serial="0" console="" delay="0" icon="Switch.png" config="0" left="603" top="606">
+        <interface id="0" name="e0/0" type="ethernet" network_id="4"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="7"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="8"/>
+      </node>
+      <node id="7" name="SW" type="iol" template="iol" image="i86bi-lv-switch-upk9-ms-15.0.bin" ethernet="1" nvram="128" ram="128" serial="0" console="" delay="0" icon="Switch.png" config="0" left="246" top="396">
+        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="2"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="3"/>
+      </node>
+      <node id="10" name="PC1" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="735fdb6c-aebc-4ca4-87cd-8346c947634e" firstmac="00:50:00:00:0a:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="816" top="102">
+        <interface id="0" name="e0" type="ethernet" network_id="12"/>
+      </node>
+      <node id="11" name="PC2" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="373555d2-c03b-4a9c-87aa-3dcedfda0f94" firstmac="00:50:00:00:0b:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="816" top="201">
+        <interface id="0" name="e0" type="ethernet" network_id="11"/>
+      </node>
+      <node id="12" name="PC3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="6101e81a-0b5b-42fd-9afc-16f86b043fcb" firstmac="00:50:00:00:0c:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="813" top="339">
+        <interface id="0" name="e0" type="ethernet" network_id="10"/>
+      </node>
+      <node id="13" name="PC4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="d20a98b0-e0ce-44b4-992b-6f72cbb6399a" firstmac="00:50:00:00:0d:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="813" top="441">
+        <interface id="0" name="e0" type="ethernet" network_id="9"/>
+      </node>
+      <node id="14" name="PC5" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="33d26e9e-4275-4d64-910e-885495cd4e50" firstmac="00:50:00:00:0e:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="807" top="597">
+        <interface id="0" name="e0" type="ethernet" network_id="7"/>
+      </node>
+      <node id="15" name="PC6" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="197227d1-53dd-4577-84bf-3f28f76f106c" firstmac="00:50:00:00:0f:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop2.png" config="0" left="807" top="696">
+        <interface id="0" name="e0" type="ethernet" network_id="8"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-R1iface_0" left="289" top="298" visibility="0"/>
+      <network id="2" type="bridge" name="Net-R2iface_0" left="420" top="312" visibility="0"/>
+      <network id="3" type="bridge" name="Net-R3iface_0" left="405" top="324" visibility="0"/>
+      <network id="4" type="bridge" name="Net-SW-LAN3iface_0" left="540" top="230" visibility="0"/>
+      <network id="5" type="bridge" name="Net-SW-LAN2iface_0" left="305" top="300" visibility="0"/>
+      <network id="6" type="bridge" name="Net-SW-LAN1iface_0" left="481" top="393" visibility="0"/>
+      <network id="7" type="bridge" name="Net-PC14iface_0" left="358" top="182" visibility="0"/>
+      <network id="8" type="bridge" name="Net-PC15iface_0" left="244" top="418" visibility="0"/>
+      <network id="9" type="bridge" name="Net-PC13iface_0" left="341" top="362" visibility="0"/>
+      <network id="10" type="bridge" name="Net-PC12iface_0" left="548" top="350" visibility="0"/>
+      <network id="11" type="bridge" name="Net-PC11iface_0" left="553" top="261" visibility="0"/>
+      <network id="12" type="bridge" name="Net-PC10iface_0" left="359" top="225" visibility="0"/>
+    </networks>
+  </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="LAN1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgZHJhZ3N0b3BwZWQgdWktcmVzaXphYmxlIiBkYXRhLXBhdGg9IjEiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA0OTVweDsgdG9wOiA4NHB4OyB3aWR0aDogNDE4Ljk2N3B4OyBoZWlnaHQ6IDIwNi41ODJweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iTEFOMSI+PHN2ZyB3aWR0aD0iNDE4Ljk2NyIgaGVpZ2h0PSIyMDYuNTgyIj48cmVjdCB3aWR0aD0iNDE4Ljk2NyIgaGVpZ2h0PSIyMDYuNTgyIiBmaWxsPSIjZGVjOWY3IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWRhc2hhcnJheT0iMTAsMTAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="LAN2" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUyIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IHVpLXJlc2l6YWJsZSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjIiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA0OTJweDsgdG9wOiAzMjFweDsgd2lkdGg6IDQyMC45NjRweDsgaGVpZ2h0OiAyMDguMjA2cHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9IkxBTjIiPjxzdmcgd2lkdGg9IjQyMC45NjQiIGhlaWdodD0iMjA4LjE5NSI+PHJlY3Qgd2lkdGg9IjQyMC45NjQiIGhlaWdodD0iMjA4LjE5NSIgZmlsbD0iI2IzZDFkNSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1kYXNoYXJyYXk9IjEwLDEwIiAiPSIiPjwvcmVjdD5Tb3JyeSwgeW91ciBicm93c2VyIGRvZXMgbm90IHN1cHBvcnQgaW5saW5lIFNWRy48L3N2Zz48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1lIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48L2Rpdj4=</data>
+      </textobject>
+      <textobject id="3" name="LAN2" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUzIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUgZHJhZ3N0b3BwZWQiIGRhdGEtcGF0aD0iMyIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgei1pbmRleDogOTk5OyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDQ5MnB4OyB0b3A6IDU2NHB4OyB3aWR0aDogNDI2Ljk5OHB4OyBoZWlnaHQ6IDIxNC45OThweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iTEFOMiI+PHN2ZyB3aWR0aD0iNDIwLjk2NCIgaGVpZ2h0PSIyMDguMTk1Ij48cmVjdCB3aWR0aD0iNDIwLjk2NCIgaGVpZ2h0PSIyMDguMTk1IiBmaWxsPSIjYmVkNWIzIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWRhc2hhcnJheT0iMTAsMTAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="4" name="LAN2" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU0IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUganRrLWRyYWctc2VsZWN0ZWQgZHJhZ3N0b3BwZWQiIGRhdGEtcGF0aD0iNCIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgei1pbmRleDogOTk5OyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDIwMXB4OyB0b3A6IDE4MHB4OyB3aWR0aDogMjY3Ljk2NXB4OyBoZWlnaHQ6IDQ5Ni45NzlweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iTEFOMiI+PHN2ZyB3aWR0aD0iMjY3Ljk2NSIgaGVpZ2h0PSI0OTYuOTc5Ij48cmVjdCB3aWR0aD0iMjY3Ljk2NSIgaGVpZ2h0PSI0OTYuOTc5IiBmaWxsPSIjZGRkNmE2IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWRhc2hhcnJheT0iMTAsMTAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjwvZGl2Pg==</data>
+      </textobject>
+    </textobjects>
+  </objects>
+</lab>
