@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="AT0402_servicios_red" id="7e1d8370-f41f-40de-8c04-4293d061c880" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+<lab name="AT0403_servicios_red" id="7e1d8370-f41f-40de-8c04-4293d061c880" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
   <topology>
     <nodes>
       <node id="1" name="SRV1" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="7f572f37-8818-41ad-aade-2c54bb558842" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="273" top="297">
