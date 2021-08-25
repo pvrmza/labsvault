@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0404_Xinetd" id="8645a872-9ddc-4325-a1b4-b51d176fdba0" version="1" scripttimeout="300" lock="1" author="Pablo Vargas">
+  <topology>
+    <nodes>
+      <node id="1" name="SRV1" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="2" cpulimit="0" ram="750" ethernet="1" uuid="5617bd3b-cc78-498c-b54a-de738cc604c9" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="411" top="513">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="SRV2" type="qemu" template="linux" image="linux-lv-ubuntu-18.04" console="vnc" cpu="2" cpulimit="0" ram="750" ethernet="1" uuid="625c553d-7395-4e51-9368-96b01aafd735" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="672" top="510">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="3" name="Linux" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="2" uuid="070b5baa-adf0-494f-897c-594ffeef44cd" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router_FW.png" config="0" left="525" top="282">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+        <interface id="1" name="e1" type="ethernet" network_id="1"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="sw1" left="525" top="420" visibility="1"/>
+      <network id="2" type="pnet0" name="Inet" left="519" top="153" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
