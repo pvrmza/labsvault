@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="0308_mikrotik_dos_router_inet" id="536b6b8f-f6f9-42f7-84ec-41a1e8035ddc" version="1" scripttimeout="300" lock="0" author="Pablo Vargas">
+  <topology>
+    <nodes>
+      <node id="3" name="Linux3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="63ac071b-b9bf-4a7b-b1f9-10f9f070da11" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="432">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="4" name="Linux4" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="219a37e7-a637-4b13-bff1-d6c3775cace8" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="621">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="Linux5" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="ce897d53-bfb9-48ed-9d1b-e18de42d9f1b" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="738">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="6" name="Linux6" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="f238d598-7844-4db3-9317-64a692b48e8b" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga std -usbdevice tablet -boot order=dc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="801" top="297">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="1" name="mkt1" type="qemu" template="mikrotik" image="mikrotik-lv-iso-6.47.7" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="c78fdd05-8d46-4403-913b-a098bc42f6d9" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="384" top="384">
+        <interface id="0" name="eth1" type="ethernet" network_id="2"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="1"/>
+        <interface id="2" name="eth3" type="ethernet" network_id="4"/>
+      </node>
+      <node id="2" name="mkt2" type="qemu" template="mikrotik" image="mikrotik-lv-iso-6.47.7" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="cdd4954c-47f3-4243-a7b7-15246dcc3b1a" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="381" top="666">
+        <interface id="0" name="eth1" type="ethernet" network_id="4"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="3"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Internet" left="141" top="384" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="606" top="396" visibility="1"/>
+      <network id="3" type="bridge" name="sw3" left="597" top="675" visibility="1"/>
+      <network id="4" type="bridge" name="Net-mkt1iface_2" left="444" top="424" visibility="0"/>
+    </networks>
+  </topology>
+</lab>
