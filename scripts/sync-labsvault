@@ -20,7 +20,7 @@ if [ $? -eq 0 ]; then
 
         # fix 
         chown www-data.www-data $DIRLOCALLABS -R
-        chmod 555 $DIRLOCALLABS -R
+        chmod 755 $DIRLOCALLABS -R
         echo "lab sync [OK]" >> $LOG
 else
         echo "fallo SVN CHECKOUT" >> $LOG
