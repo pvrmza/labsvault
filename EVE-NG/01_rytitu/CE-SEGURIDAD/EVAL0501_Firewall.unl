@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="EVAL0501_Firewall" id="159acff2-db38-4216-9247-8d02e943226a" version="1" scripttimeout="300" lock="1" author="Pablo Vargas &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;pablo.vargas@itu.uncu.edu.ar">
+  <description># Configuración de la Red (20 ptos) 
+    1. Elegir un rango de direcciones publicas para la parte de Internet, y un rango de direcciiones privadas para las redes internas ( desde R-MPLS para abajo )
+    2. Realizar la matriz de conexión de la red indicando los dispositivos y las interfaces. 
+    3. Realizar una tabla con cada una de las subredes publicas y privadas, indicando rangos utiles y la puerta de enlace predeterminada de la red. 
+    4. Definir los IP a utilizar en cada uno de los equipos. Realizar una tabla indicando el nombre de cada equipo, IP de cada interfaz de red 
+    5. Configurar cada uno de los equipos y verificar conectividad entre ellos.
+
+# Configuración Filtros de trafico ( 60 ptos ) 
+    1. Permitir el trafico desde las PC a los puertos TCP/110, TCP/25, TCP/80 a mail01
+    2. Permitir el trafico desde las PC a los puertos TCP/3128, TCP/8080 y TCP/80 a proxy01
+    3. Permitir el trafico desde las PC a los puertos TCP/389, TCP/88, UDP/53 a DC01
+    4. Permitir el trafico desde  mail01y proxy01 a los puertos TCP/389, TCP/88, UDP/53 a DC01
+    5. Permitir todo el trafico desde proxy01 a internet 
+    6. Desde internet solo permitir el trafico a los puertos TCP/25 y TCP/80 de mail01
+    7. Permitir conexiones SMTP, WEB y DNS desde cualquier IP privado a mail01 y a proxy01
+    8. Permitir el trafico SSH desde PC1 y DC01 a cualquier de los dos servidores
+    9. En el proxy01, el trafico entrante al puerto TCP/8080 redirigirlo al TCP/3128 del mismo server
+    10. Permitir trafico ICMP de las PC a los servidores, pero no entre ellas
+
+# Prueba de las reglas de Seguridad ( 20 ptos ) 
+    1. Desde la PC_ext verificar conectividad a todos los dispositivos de la red. Pegar los comandos utilizados y las salidas de los mismos
+    2. Realizar escaneo de puertos desde PC_ext a los servidores. Pegar los comandos utilizados y las salidas de los mismos</description>
+  <topology>
+    <nodes>
+      <node id="1" name="R-MPLS" type="qemu" template="mikrotik" image="mikrotik-lv-chr-6.45.8" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="4d77a2ef-e91a-46ce-8525-e6d99918c394" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="717" top="426">
+        <interface id="0" name="eth1" type="ethernet" network_id="1"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="2"/>
+      </node>
+      <node id="2" name="R-MZA" type="qemu" template="mikrotik" image="mikrotik-lv-chr-6.45.8" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="5b91ae81-e1f4-4da3-882b-9f2726ec1d72" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="507" top="576">
+        <interface id="0" name="eth1" type="ethernet" network_id="2"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="4"/>
+      </node>
+      <node id="3" name="R-SANRAFAEL" type="qemu" template="mikrotik" image="mikrotik-lv-chr-6.45.8" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="335c676a-e436-47a7-a468-5854a67e3fc2" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="0" left="939" top="570">
+        <interface id="0" name="eth1" type="ethernet" network_id="2"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="3"/>
+      </node>
+      <node id="4" name="DC01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="256" ethernet="1" uuid="ddc0980f-6ad4-465e-81c6-172e735c8659" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_AD.png" config="0" left="375" top="813">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+      <node id="5" name="PC01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="256" ethernet="1" uuid="079715fa-ee39-4cab-84c3-c472c020eccb" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="522" top="822">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+      <node id="6" name="mail01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="256" ethernet="1" uuid="175936e4-53ee-417b-abbb-831e21563572" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_mail.png" config="0" left="654" top="630">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="7" name="Proxy01" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="256" ethernet="1" uuid="cd0283c6-ac7a-4f1a-bf3d-0f799d7c4c68" firstmac="00:50:00:00:07:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_Linux.png" config="0" left="768" top="636">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="8" name="PC02" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="256" ethernet="1" uuid="85faf3d3-e062-4fa4-ad30-e9ff9a6cb6d6" firstmac="00:50:00:00:08:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="951" top="828">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="INET" left="717" top="297" visibility="1"/>
+      <network id="2" type="bridge" name="SW-MPLS" left="717" top="537" visibility="1"/>
+      <network id="3" type="bridge" name="SW-SR" left="951" top="729" visibility="1"/>
+      <network id="4" type="bridge" name="SW-MZA" left="504" top="726" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
