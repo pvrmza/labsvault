@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0301_Generacion_Captura_trafico" id="e186df77-1413-44a6-98be-a2537da83871" version="1" scripttimeout="300" lock="0" author="Pablo Vargas &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;pablo.vargas@itu.uncu.edu.ar&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;">
+  <topology>
+    <nodes>
+      <node id="1" name="router" type="qemu" template="mikrotik" image="mikrotik-lv-iso-6.47.7" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="77ff74e4-45b9-4d59-92f2-fc41517b8619" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Router.png" config="1" left="597" top="366">
+        <interface id="0" name="eth1" type="ethernet" network_id="1"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="2"/>
+        <interface id="2" name="eth3" type="ethernet" network_id="3"/>
+      </node>
+      <node id="3" name="Linux3" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="2" cpulimit="0" ram="512" ethernet="1" uuid="7103b073-1262-408a-afbc-fca2cd3ec412" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="2" icon="Server.png" config="0" left="372" top="585">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="4" name="Linux4" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="2" cpulimit="0" ram="512" ethernet="1" uuid="604300fb-325f-46d5-a06c-b00320094846" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="2" icon="Server.png" config="0" left="795" top="588">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="Linux5" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="2" cpulimit="0" ram="512" ethernet="1" uuid="eab78523-607c-440e-9c0f-843f591a932b" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="2" icon="Server.png" config="0" left="903" top="588">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Internet" left="594" top="210" visibility="1"/>
+      <network id="2" type="bridge" name="sw01" left="402" top="492" visibility="1"/>
+      <network id="3" type="bridge" name="sw02" left="840" top="495" visibility="1"/>
+    </networks>
+  </topology>
+  <objects>
+    <configs>
+      <config id="1">DQo=</config>
+    </configs>
+  </objects>
+</lab>
