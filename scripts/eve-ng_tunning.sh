@@ -8,7 +8,7 @@ done
 apt-get update && apt-get -y dist-upgrade
 apt-get install -y qemu-guest-agent open-vm-tools subversion rsync build-essential \
   libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev pkg-config \
-  genisoimage cloud-utils screen byobu eve-ng-addons-netem
+  genisoimage cloud-utils screen byobu 
 if [ $? -ne 0 ]; then
 	exit 1
 fi
@@ -20,7 +20,7 @@ cp /opt/unetlab/html/includes/config.php.distribution /opt/unetlab/html/includes
 # spanish keyboard
 for file in `find /opt/unetlab/html/templates/ -type f -iname \???*.yml`
 do
-  sed -i 's/=kvm -vga /=kvm -k es -vga /g' $file
+  sed -i 's/=kvm /=kvm -k es /g' $file
 done
 
 #IOL con 256MB andan...
@@ -32,7 +32,7 @@ done
 # igual que los linux.. 512MB sobra ! 
 for file in `find /opt/unetlab/html/templates/ -type f -iname linux.yml`
 do
-  sed -i 's/ram: 2048/ram: 512/g' $file
+  sed -i 's/ram: 4096/ram: 512/g' $file
 done
 
 #------ megadl
