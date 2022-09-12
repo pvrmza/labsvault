@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0501_firewall_linux" id="9339289c-8f50-4da6-8370-00e53563acc5" version="1" scripttimeout="300" lock="1" author="Pablo Vargas &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;pablo.vargas@itu.uncu.edu.ar&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;">
+  <topology>
+    <nodes>
+      <node id="1" name="Router" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="3" uuid="a96efd54-42fd-49e2-9af7-39f0ec870477" firstmac="00:50:01:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="411" top="279">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+        <interface id="2" name="e2" type="ethernet" network_id="2"/>
+      </node>
+      <node id="2" name="Linux2" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="1" uuid="f3b3f506-69e9-471c-929e-232fc1dc04cf" firstmac="00:50:01:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="213" top="405">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="3" name="Linux3" type="qemu" template="linux" image="linux-lv-alpine-3.11" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="1" uuid="9565d15d-78e5-496d-9873-29c8503275b7" firstmac="00:50:01:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server.png" config="0" left="603" top="408">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Inet" left="408" top="144" visibility="1"/>
+      <network id="2" type="bridge" name="sw2" left="594" top="291" visibility="1"/>
+      <network id="3" type="bridge" name="sw3" left="210" top="297" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
