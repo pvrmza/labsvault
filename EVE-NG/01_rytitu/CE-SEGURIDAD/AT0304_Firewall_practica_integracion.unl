@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="AT0304_Firewall_practica_integracion" id="0baf594e-5b0b-47e2-851b-1bacb8562afd" version="1" scripttimeout="300" lock="0" author="Pablo Vargas &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;pablo.vargas@itu.uncu.edu.ar&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;">
+  <topology>
+    <nodes>
+      <node id="1" name="R1" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="2" uuid="caed5009-31c4-4e2b-830d-0223e7fdf8a6" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="558" top="243">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+        <interface id="1" name="e1" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="R-MZA" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="2" uuid="0cd4a87e-bf3b-485f-bc50-c5b44f473fdc" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="348" top="351">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="4"/>
+      </node>
+      <node id="3" name="R-SANRAFAEL" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="2" uuid="7034e6f9-547a-4208-a32a-893c9a05e8a1" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Router.png" config="0" left="753" top="354">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="4" name="DC01" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="b0666529-8f77-4c5c-9f26-bd069a5a5430" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="271" top="596">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+      <node id="5" name="PC01" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="2eebd9f5-9695-47d0-94ec-c40ca9a74b57" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="331" top="596">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+      <node id="6" name="PC02" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="3bf37b79-e2f2-430f-b04c-9f1d16079467" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="759" top="576">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="7" name="mail01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="f75f3da5-883c-4032-86f7-f4c032b46f27" firstmac="00:50:00:00:07:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="501" top="465">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="8" name="proxy01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="f5936647-9dcf-4616-85da-60d37fe7400a" firstmac="00:50:00:00:08:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="600" top="468">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="9" name="PC-Ext" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="1" cpulimit="0" ram="512" ethernet="1" uuid="c9e8209b-47fc-4f28-9c49-0641134bbbd9" firstmac="00:50:00:00:09:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop3.png" config="0" left="348" top="117">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="sw-mpls" left="558" top="360" visibility="1"/>
+      <network id="2" type="pnet0" name="Inet" left="555" top="120" visibility="1"/>
+      <network id="3" type="bridge" name="sw-sanrafael" left="747" top="471" visibility="1"/>
+      <network id="4" type="bridge" name="sw-mza" left="327" top="465" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
