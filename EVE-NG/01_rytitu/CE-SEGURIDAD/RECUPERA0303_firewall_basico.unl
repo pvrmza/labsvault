@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="RECUPERA0303_firewall_basico" id="ca6716b3-8554-4ded-aa3d-349564701fdd" version="1" scripttimeout="300" lock="1">
+  <topology>
+    <nodes>
+      <node id="1" name="FW-Borde" type="qemu" template="linux" image="linux-lv-alpine-3.16" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="2" uuid="3598523a-fd59-496b-9bdc-e3691482ad67" firstmac="00:50:00:00:01:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Firewall.png" config="0" left="702" top="333">
+        <interface id="0" name="e0" type="ethernet" network_id="1"/>
+        <interface id="1" name="e1" type="ethernet" network_id="2"/>
+      </node>
+      <node id="2" name="R-MZA" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="2" uuid="b04c632c-3c33-4dc7-a491-e5808d362afa" firstmac="00:50:00:00:02:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Firewall.png" config="0" left="357" top="432">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+        <interface id="1" name="e1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="3" name="R-SANRAFAEL" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="2" uuid="6a2f7b8b-f746-4f27-bf3c-e0e5dbf4d130" firstmac="00:50:00:00:03:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Firewall.png" config="0" left="1032" top="429">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+        <interface id="1" name="e1" type="ethernet" network_id="4"/>
+      </node>
+      <node id="4" name="Mail01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="1" uuid="491594d4-6fb2-4154-9aa1-3e1714ea40c5" firstmac="00:50:00:00:04:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="615" top="564">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="5" name="Proxy01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="2" cpulimit="0" ram="128" ethernet="1" uuid="b82a2270-be64-49d0-9f69-c4730740bc95" firstmac="00:50:00:00:05:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_WEB.png" config="0" left="798" top="561">
+        <interface id="0" name="e0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="6" name="DC01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="8d2901b8-1e20-4153-bc81-451afe041deb" firstmac="00:50:00:00:06:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Server_AD.png" config="0" left="261" top="714">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="7" name="PC01" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="217147b6-816e-4d77-bd14-6eee6e5820bc" firstmac="00:50:00:00:07:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="453" top="732">
+        <interface id="0" name="e0" type="ethernet" network_id="3"/>
+      </node>
+      <node id="8" name="PC02" type="qemu" template="linux" image="linux-netem" console="vnc" cpu="1" cpulimit="0" ram="128" ethernet="1" uuid="5b80d7b7-fbd4-436a-83b7-428ba262d44f" firstmac="00:50:00:00:08:00" qemu_options="-machine type=pc,accel=kvm -k es -vga virtio -usbdevice tablet -boot order=cd" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="Desktop.png" config="0" left="1044" top="726">
+        <interface id="0" name="e0" type="ethernet" network_id="4"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Inet" left="702" top="225" visibility="1"/>
+      <network id="2" type="bridge" name="sw-mpls" left="702" top="441" visibility="1"/>
+      <network id="3" type="bridge" name="sw-mza" left="354" top="600" visibility="1"/>
+      <network id="4" type="bridge" name="sw-sanrafael" left="1035" top="600" visibility="1"/>
+    </networks>
+  </topology>
+</lab>
